@@ -1682,13 +1682,13 @@
 				.fastClick()
 				.on('click', this._downloadSVGClick);
 
-			this.downloadURL = this.dom.el('a')
-				.text('URL')
-				.attrs({'href': '#'})
-				.fastClick()
-				.on('click', this._downloadURLClick);
+			// this.downloadURL = this.dom.el('a')
+			// 	.text('URL')
+			// 	.attrs({'href': '#'})
+			// 	.fastClick()
+			// 	.on('click', this._downloadURLClick);
 
-			this.urlBuilder = this.buildURLBuilder();
+			// this.urlBuilder = this.buildURLBuilder();
 
 			this.optsHold = this.dom.el('div').setClass('options downloads').add(
 				this.downloadPNG,
@@ -2346,21 +2346,25 @@
 	});
 
 	const defaultCode = (
-		'title Labyrinth\n' +
-		'\n' +
-		'Bowie -> Goblin: You remind me of the babe\n' +
-		'Goblin -> Bowie: What babe?\n' +
-		'Bowie -> Goblin: The babe with the power\n' +
-		'Goblin -> Bowie: What power?\n' +
-		'note right of Bowie, Goblin: Most people get muddled here!\n' +
-		'Bowie -> Goblin: "The power of voodoo"\n' +
-		'Goblin -> Bowie: "Who-do?"\n' +
-		'Bowie -> Goblin: You do!\n' +
-		'Goblin -> Bowie: Do what?\n' +
-		'Bowie -> Goblin: Remind me of the babe!\n' +
-		'\n' +
-		'Bowie -> Audience: Sings\n' +
-		'\n' +
+		'title Example\n'+
+		'\n'+
+		'begin Handler, Usecase, Service, Resource\n'+
+		'\n'+
+		'Handler  -> Usecase :Call method\n'+
+		'Usecase -> Service  : Method A\n'+
+		'Service -> Resource : Get something\n'+
+		'Service <-- Resource : response\n'+
+		'Usecase <-- Service : response\n'+
+		'Usecase -> Service  : Method B\n'+
+		'Usecase <-- Service : response\n'+
+		'Service -> Resource : Get product\n'+
+		'\n'+
+		'note right of Service: Some description of the process\n'+
+		'Service <-- Resource : response\n'+
+		'\n'+
+		'Usecase <-- Service :response\n'+
+		'Handler <-- Usecase :response\n'+
+		'\n'+
 		'terminators box\n'
 	);
 

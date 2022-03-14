@@ -3,18 +3,6 @@
 
 <head>
 	<meta charset="utf-8">
-	<!-- <meta http-equiv="content-security-policy" content="
-	base-uri 'self';
-	default-src 'none';
-	script-src 'self' 
-	style-src 'self' 'sha256-s7UPtBgvov5WNF9C1DlTZDpqwLgEmfiWha5a5p/Zn7E=';
-	connect-src 'self';
-	font-src 'self' data:;
-	img-src 'self' blob:;
-	frame-src 'self';
-	form-action 'self';
-"> -->
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no, minimal-ui">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="default">
 	<meta name="format-detection" content="telephone=no">
@@ -26,21 +14,6 @@
 
 	<meta name="cdn-split" content="./web/lib/split-min.js">
 
-	<!-- <meta name="cdn-cm/lib/codemirror" content="node_modules/codemirror/lib/codemirror.js">
-
-	<link rel="stylesheet" href="node_modules/codemirror/lib/codemirror.css">
-
-	<meta name="cdn-cm/addon/hint/show-hint" content="node_modules/codemirror/addon/hint/show-hint.js">
-
-	<link rel="stylesheet" href="node_modules/codemirror/addon/hint/show-hint.css">
-
-	<meta name="cdn-cm/addon/edit/trailingspace" content="node_modules/codemirror/addon/edit/trailingspace.js">
-
-	<meta name="cdn-cm/addon/comment/comment" content="node_modules/codemirror/addon/comment/comment.js">
-
-	<script src="node_modules/requirejs/require.js"></script>
-	<link rel="stylesheet" href="web/styles/codemirror-override.css"> -->
-	
 	<link rel="stylesheet" href="./web/lib/codemirror.css">
 	<meta name="cdn-cm/lib/codemirror" content="web/lib/codemirror.js">
 	<meta name="cdn-cm/addon/hint/show-hint" content="web/lib/show-hint.js">
@@ -49,9 +22,7 @@
 
 	<script src="./lib/sequence-diagram-web.min.js"></script>
 	<script src="./web/lib/require.js"></script>
-	<!-- <script src="web/lib/require.js"></script> -->
 	<link rel="stylesheet" href="./web/styles/codemirror-override.css">
-	<!-- <script src="web/lib/editor.min.js"></script> -->
 	<script src="./web/lib/editor.js"></script>
 
 </head>
@@ -63,7 +34,6 @@
 		<p class="loadmsg">Loading&hellip;</p>
 		<nav>
 			<a href="#" data-touch="Files">My Diagrams</a>
-			<!-- <a href="https://github.com/davidje13/SequenceDiagram" target="_blank" rel="noopener" data-touch="">GitHub</a> -->
 		</nav>
 	</div>
 
@@ -73,27 +43,32 @@
 			<section class="banner">
 				Enable JavaScript for live rendering, templates, PNG export, and local file saving.
 				<nav><a href="library.htm" target="_blank" rel="noopener">Library</a><a
-						href="https://github.com/davidje13/SequenceDiagram" target="_blank" rel="noopener">GitHub</a></nav>
+						href="https://github.com/davidje13/SequenceDiagram" target="_blank" rel="noopener">GitHub</a>
+				</nav>
 			</section>
 			<form target="preview" action="preview" method="GET">
 				<textarea name="c">
-title Labyrinth
+					title Example
 
-Bowie -> Goblin: You remind me of the babe
-Goblin -> Bowie: What babe?
-Bowie -> Goblin: The babe with the power
-Goblin -> Bowie: What power?
-note right of Bowie, Goblin: Most people get muddled here!
-Bowie -> Goblin: "The power of voodoo"
-Goblin -> Bowie: "Who-do?"
-Bowie -> Goblin: You do!
-Goblin -> Bowie: Do what?
-Bowie -> Goblin: Remind me of the babe!
-
-Bowie -> Audience: Sings
-
-terminators box
-</textarea>
+					begin Handler, Usecase, Service, Resource
+					
+					Handler  -> Usecase :Call method
+					Usecase -> Service  : Method A
+					Service -> Resource : Get something
+					Service <-- Resource : response
+					Usecase <-- Service : response
+					Usecase -> Service  : Method B
+					Usecase <-- Service : response
+					Service -> Resource : Get product
+					
+					note right of Service: Some description of the process
+					Service <-- Resource : response
+					
+					Usecase <-- Service :response
+					Handler <-- Usecase :response
+					
+					terminators box
+				</textarea>
 				<button type="submit">Update</button>
 			</form>
 		</main>
